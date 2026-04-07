@@ -1,55 +1,47 @@
-# 5. Slice and Dice (OLAP)
+# Practical No. 2: Install Device Drivers
 
-Step 1 — Install the pandas library:
+## a) Install and Configure Hardware Device Drivers
 
-```bash
-pip install pandas
-```
+Step 1 — Right-click Start → Click Device Manager
 
-```python
-import pandas as pd
+![Device Manager](1.png)
 
-data = {'Region': ['North', 'South', 'East', 'West', 'North'],
-        'Product': ['A', 'B', 'A', 'B', 'A'],
-        'Sales': [100, 200, 150, 300, 250]}
-df = pd.DataFrame(data)
-print("Original Data:")
-print(df)
+Step 2 — Identify Devices Needing Drivers
 
-# -------- SLICE --------
-slice_data = df[df['Product'] == 'A']
-print(slice_data)
+![Identify Devices](2.png)
 
-# -------- DICE --------
-dice_data = df[(df['Product'] == 'A') & (df['Region'] == 'North')]
-print(dice_data)
-```
+Step 3 — For Automatic Installation:
+- Right-click the device → Update Driver
+- Choose "Search automatically for drivers"
+- Windows checks Windows Update or preloaded drivers
+
+For Manual Installation:
+- Download the latest driver from the vendor website
+- Right-click the device → Update Driver → Browse my computer for drivers
+- Select the downloaded driver folder → Install
+
+![Update Driver](3.png)
+
+Step 4 — To Configure the Driver:
+- Right-click the device → Click Properties
+- Configure settings under tabs: Driver (update, roll back, disable), Power Management, Advanced (device-specific settings)
+
+Step 5 — Restart the Server (if needed)
 
 ---
 
-# 6. Drill-Down and Roll-Up (OLAP)
+## b) Uninstall Device Drivers
 
-Step 1 — Install the pandas library:
+Step 1 — Right-click Start → Select Device Manager
 
-```bash
-pip install pandas
-```
+Step 2 — Locate the Device
 
-```python
-import pandas as pd
+Step 3 — Open Device Properties:
+- Right-click the device
+- Click Properties
 
-data = {'Year': [2022, 2022, 2023, 2023],
-        'Region': ['North', 'South', 'North', 'South'],
-        'Sales': [100, 200, 150, 300]}
-df = pd.DataFrame(data)
-print("Original Data:")
-print(df)
+Step 4 — In the Properties window → click Driver tab → Click Uninstall
 
-# -------- ROLL-UP --------
-rollup = df.groupby('Year')['Sales'].sum()
-print(rollup)
+![Uninstall Driver](4.png)
 
-# -------- DRILL-DOWN --------
-drilldown = df.groupby(['Year', 'Region'])['Sales'].sum()
-print(drilldown)
-```
+Step 5 — Restart the Server
