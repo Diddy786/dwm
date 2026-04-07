@@ -1,3 +1,11 @@
+# DWM Practicals
+
+## 📥 [Download Offline Version (HTML)](https://github.com/Diddy786/dwm/raw/main/practical.html)
+
+Right-click the link above → Save Link As → Open the downloaded HTML file in any browser (works offline)
+
+---
+
 # Practical No. 2: Install Device Drivers
 
 ## a) Install and Configure Hardware Device Drivers on Windows Server
@@ -42,3 +50,61 @@ Click Properties
 ![Uninstall Driver](4.png)
 
 5. Restart the Server
+
+---
+
+# 5. Slice and Dice (OLAP)
+
+Step 1 — Install the pandas library:
+
+```bash
+pip install pandas
+```
+
+```python
+import pandas as pd
+
+data = {'Region': ['North', 'South', 'East', 'West', 'North'],
+        'Product': ['A', 'B', 'A', 'B', 'A'],
+        'Sales': [100, 200, 150, 300, 250]}
+df = pd.DataFrame(data)
+print("Original Data:")
+print(df)
+
+# -------- SLICE --------
+slice_data = df[df['Product'] == 'A']
+print(slice_data)
+
+# -------- DICE --------
+dice_data = df[(df['Product'] == 'A') & (df['Region'] == 'North')]
+print(dice_data)
+```
+
+---
+
+# 6. Drill-Down and Roll-Up (OLAP)
+
+Step 1 — Install the pandas library:
+
+```bash
+pip install pandas
+```
+
+```python
+import pandas as pd
+
+data = {'Year': [2022, 2022, 2023, 2023],
+        'Region': ['North', 'South', 'North', 'South'],
+        'Sales': [100, 200, 150, 300]}
+df = pd.DataFrame(data)
+print("Original Data:")
+print(df)
+
+# -------- ROLL-UP --------
+rollup = df.groupby('Year')['Sales'].sum()
+print(rollup)
+
+# -------- DRILL-DOWN --------
+drilldown = df.groupby(['Year', 'Region'])['Sales'].sum()
+print(drilldown)
+```
