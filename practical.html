@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DWM Practicals</title>
+    <style>
+        body { font-family: Arial; margin: 20px; background: #1e1e1e; color: #d4d4d4; }
+        h2 { color: #4ec9b0; }
+        pre { background: #2d2d2d; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        code { color: #ce9178; }
+        button { background: #0e639c; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 3px; margin: 5px 0; }
+        button:hover { background: #1177bb; }
+        .copied { background: #16825d !important; }
+        img { max-width: 600px; margin: 10px 0; border: 1px solid #444; }
+    </style>
+</head>
+<body>
+
+<h2>Practical No. 2: Install Device Drivers</h2>
+
+<h3>a) Install and Configure Hardware Device Drivers on Windows Server</h3>
+
+<p>1. Right-click Start. Click Device Manager</p>
+<p>2. Identify Devices Needing Drivers</p>
+<p>3. for Automatic Installation:</p>
+<p>Right-click the device → Update Driver.</p>
+<img src="1.png">
+<p>Choose Search automatically for drivers.</p>
+<img src="2.png">
+<p>Windows checks Windows Update or preloaded drivers.</p>
+
+<p>For Manual Installation:</p>
+<ul>
+<li>Download the latest driver from the vendor website.</li>
+<li>Right-click the device → Update Driver → Browse my computer for drivers.</li>
+<li>Select the downloaded driver folder → Install.</li>
+</ul>
+
+<p>4. To Configure the Driver Right-click the device. Click Properties. Configure settings under tabs: Driver (update, roll back, disable), Power Management, Advanced (device-specific settings)</p>
+<p>5. Restart the Server (if needed)</p>
+
+<h3>Uninstall Device Drivers</h3>
+<p>1. Right-click Start. Select Device Manager</p>
+<p>2. Locate the Device.</p>
+<p>3. Open Device Properties. Right-click the device.</p>
+<img src="3.png">
+<p>Click Properties</p>
+<p>4. In the Properties window → click Driver tab. Click Uninstall</p>
+<img src="4.png">
+<p>5. Restart the Server</p>
+
+<hr>
+
+<h2>5. Slice and Dice (OLAP)</h2>
+<button onclick="copyCode('code1')">Copy Code</button>
+<pre><code id="code1">import pandas as pd
+
+data = {'Region': ['North', 'South', 'East', 'West', 'North'],
+        'Product': ['A', 'B', 'A', 'B', 'A'],
+        'Sales': [100, 200, 150, 300, 250]}
+df = pd.DataFrame(data)
+print("Original Data:")
+print(df)
+
+# -------- SLICE --------
+slice_data = df[df['Product'] == 'A']
+print(slice_data)
+
+# -------- DICE --------
+dice_data = df[(df['Product'] == 'A') & (df['Region'] == 'North')]
+print(dice_data)</code></pre>
+
+<hr>
+
+<h2>6. Drill-Down and Roll-Up (OLAP)</h2>
+<button onclick="copyCode('code2')">Copy Code</button>
+<pre><code id="code2">import pandas as pd
+
+data = {'Year': [2022, 2022, 2023, 2023],
+        'Region': ['North', 'South', 'North', 'South'],
+        'Sales': [100, 200, 150, 300]}
+df = pd.DataFrame(data)
+print("Original Data:")
+print(df)
+
+# -------- ROLL-UP --------
+rollup = df.groupby('Year')['Sales'].sum()
+print(rollup)
+
+# -------- DRILL-DOWN --------
+drilldown = df.groupby(['Year', 'Region'])['Sales'].sum()
+print(drilldown)</code></pre>
+
+<script>
+function copyCode(id) {
+    const code = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(code).then(() => {
+        const btn = event.target;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.textContent = 'Copy Code';
+            btn.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
+
+</body>
+</html>
