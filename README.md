@@ -1,5 +1,11 @@
 # 5. Slice and Dice (OLAP)
 
+Step 1 — Install the pandas library:
+
+```bash
+pip install pandas
+```
+
 ```python
 import pandas as pd
 
@@ -22,6 +28,12 @@ print(dice_data)
 ---
 
 # 6. Drill-Down and Roll-Up (OLAP)
+
+Step 1 — Install the pandas library:
+
+```bash
+pip install pandas
+```
 
 ```python
 import pandas as pd
