@@ -2,48 +2,43 @@
 
 ## a) Install and Configure Hardware Device Drivers on Windows Server
 
-**Step 1** — Right-click Start. Click Device Manager
+1. Right-click Start. Click Device Manager
 
-![Device Manager](1.png)
+2. Identify Devices Needing Drivers
 
-**Step 2** — Identify Devices Needing Drivers
+3. for Automatic Installation:
 
-![Identify Devices](2.png)
+Right-click the device → Update Driver.
 
-**Step 3** — For Automatic Installation:
-- Right-click the device → Update Driver
-- Choose "Search automatically for drivers"
+![Update Driver](1.png)
 
-![Update Driver](3.png)
+Choose Search automatically for drivers.
 
-- Windows checks Windows Update or preloaded drivers
+![Search automatically](2.png)
+
+Windows checks Windows Update or preloaded drivers.
 
 For Manual Installation:
-- Download the latest driver from the vendor website
-- Right-click the device → Update Driver → Browse my computer for drivers
-- Select the downloaded driver folder → Install
+- Download the latest driver from the vendor website.
+- Right-click the device → Update Driver → Browse my computer for drivers.
+- Select the downloaded driver folder → Install.
 
-**Step 4** — To Configure the Driver:
-- Right-click the device
-- Click Properties
-- Configure settings under tabs: Driver (update, roll back, disable), Power Management, Advanced (device-specific settings)
+4. To Configure the Driver Right-click the device. Click Properties. Configure settings under tabs: Driver (update, roll back, disable), Power Management, Advanced (device-specific settings)
 
-**Step 5** — Restart the Server (if needed)
+5. Restart the Server (if needed)
 
----
+**Uninstall Device Drivers**
 
-## b) Uninstall Device Drivers
+1. Right-click Start. Select Device Manager
+2. Locate the Device.
+3. Open Device Properties. Right-click the device.
 
-**Step 1** — Right-click Start. Select Device Manager
+![Device Properties](3.png)
 
-**Step 2** — Locate the Device
+Click Properties
 
-**Step 3** — Open Device Properties:
-- Right-click the device
-- Click Properties
-
-**Step 4** — In the Properties window → click Driver tab → Click Uninstall
+4. In the Properties window → click Driver tab. Click Uninstall
 
 ![Uninstall Driver](4.png)
 
-**Step 5** — Restart the Server
+5. Restart the Server
